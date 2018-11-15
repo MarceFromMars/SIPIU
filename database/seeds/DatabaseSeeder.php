@@ -12,5 +12,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+    	$this->call(TipoUsuarioSeeder::class);
+        $this->call(TipoTutoriaSeeder::class);
+
+        factory('App\Division',10)->create();
+
+
+        factory('App\User')->create([
+        'nombre' => 'Omar',
+        'username' => 'Oms',
+        'password' => bcrypt('1010'),
+        ]);
     }
 }

@@ -27,4 +27,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*table = "nombre de la tabla" para definirla*/
 }

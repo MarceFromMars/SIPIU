@@ -1,10 +1,7 @@
-{{-- @extends('layout') --}}
-
-{{-- @section('HOME') --}}
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="utf-8">
   <title>Login</title>
 </head>
 <body>
@@ -22,19 +19,12 @@
 <div class="login-page">
   <div class="form">
     <p id="welcome">¡Bienvenido!</p>
-  <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="email" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">¿Estás registrado? <a href="#">Entrar</a></p>
-    </form>
-    <form class="login-form"{{--  method="POST" action="\login" --}}>
+    <form class="login-form" form method="POST" action="{{ route('login') }}" >
     {!! csrf_field() !!}
-      <input type="email" placeholder="Email" name="email" />
-      <input type="password" placeholder="password" name="password" />
-      <button type="submit">login</button>
-      <p class="message">¿No estás registrado? <a href="#">Crea tu cuenta aquí</a></p>
+      <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+      <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+      <button type="submit" value="login">
+      </button>
     </form>
   </div>
 </div>
@@ -43,4 +33,3 @@
 </body>
 </html>
 
-{{-- @endsection --}}
